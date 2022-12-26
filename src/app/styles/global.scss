@@ -1,0 +1,12 @@
+@import './_normalize';
+@import './_fonts';
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+  font-family: $main-font;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // remove highlight color
+}
