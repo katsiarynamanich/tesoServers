@@ -1,14 +1,17 @@
-.Layout__wrapper {
+.layout__wrapper {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  background: white;
+  background: black;
 }
 
-.Layout__inner {
+.layout__inner {
+  height: calc(100vh - $header_height);
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
   flex-grow: 1;
-  height: 100%;
+  background-image: url("../shared/icons/contentbackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

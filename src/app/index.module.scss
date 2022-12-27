@@ -1,4 +1,7 @@
-.app__wrapper {
-  @include unselectable;
-  font-size: rem(20px);
+.app__suspenseLoader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
