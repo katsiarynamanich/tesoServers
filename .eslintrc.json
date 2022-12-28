@@ -12,7 +12,6 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "prettier/prettier": "error",
     "semi": "off",
     "@typescript-eslint/semi": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",

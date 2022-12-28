@@ -6,10 +6,71 @@
   justify-content: center;
 }
 
-.login__form {
-  height: rem(316px);
+.login__form_wrapper {
+  min-height: rem(316px);
   width: rem(570px);
   margin: rem(15px);
+  padding: rem(32px);
   background-color: white;
   border-radius: 10px;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+
+  .login__form_label {
+    font-weight: 500;
+    font-size: rem(14px);
+    color: #8a8c91;
+    padding-bottom: rem(8px);
+    line-height: rem(18px);
+  }
+
+  .login__form_input {
+    height: rem(50px);
+    font-weight: 500;
+    color: #383c43;
+    line-height: rem(24px);
+    padding: rem(13px) rem(16px);
+    border: 1px solid #d0d1d3;
+    border-radius: 5px;
+
+    &::placeholder {
+      font-size: rem(14px);
+      opacity: 0.7;
+    }
+  }
+
+  .login__form_password {
+    padding-top: rem(16px);
+  }
+
+  .login__form_button {
+    width: rem(98px);
+    height: rem(52px);
+    display: flex;
+    align-self: center;
+    font-weight: 500;
+    line-height: rem(28px);
+    margin-top: rem(32px);
+    background: #6e29f5;
+    border-radius: 50px;
+    text-transform: capitalize;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .login__form_buttonDisabled {
+    color: white;
+    background: #b4b0bb;
+  }
+
+  .login__form_error {
+    color: #f44336;
+    margin-top: rem(5px);
+    font-size: rem(12px);
+  }
 }

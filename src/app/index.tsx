@@ -14,7 +14,7 @@ import styles from './index.module.scss';
 function App(): ReactElement {
   return (
     <Layout>
-      <ToastContainer position="top-right" />
+      <ToastContainer position="top-right" theme="dark" />
       <MyErrorBoundary>
         <Suspense
           fallback={
