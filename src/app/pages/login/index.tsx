@@ -8,7 +8,7 @@ import { Button, CircularProgress } from '@mui/material';
 
 import { axiosClient } from 'app/shared/api/axiosClient';
 import AllRoutes from 'app/shared/config/routes';
-import { ACCESS_TOKEN } from 'app/shared/config/constants';
+import { ACCESS_TOKEN, AXIOS_AUTHORIZATION_HEADER } from 'app/shared/config/constants';
 
 import styles from './styles.module.scss';
 
@@ -28,6 +28,7 @@ export default function Login(): ReactElement {
       .then(
         (result) => {
           localStorage.setItem(ACCESS_TOKEN, result.data.token);
+          axiosClient.defaults.headers[AXIOS_AUTHORIZATION_HEADER] = result.data.token;
           navigate(AllRoutes.MAIN);
           setIsLoadingLogin(false);
         },

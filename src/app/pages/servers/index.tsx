@@ -1,9 +1,7 @@
 import { ReactElement, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { CircularProgress } from '@mui/material';
 
-import AllRoutes from 'app/shared/config/routes';
 import { useTypedDispatch } from 'app/store';
 import {
   getServersListDataAsync,
@@ -13,7 +11,6 @@ import {
   setServersListData,
 } from 'app/store/serversListReducer';
 import {
-  ACCESS_TOKEN,
   AllColumnHeaders,
   COLUMN_HEADERS,
   INITIAL_SERVERS_LIST_SORTING,
@@ -29,7 +26,6 @@ import SortDescIcon from 'app/shared/icons/SortDescIcon';
 import styles from './styles.module.scss';
 
 export default function Servers(): ReactElement {
-  const navigate = useNavigate();
   const dispatch = useTypedDispatch();
 
   const serversListData = useSelector(selectServersListData);
@@ -37,15 +33,8 @@ export default function Servers(): ReactElement {
   const isServersListDataError = useSelector(selectIsServersListDataError);
   const [serversListSorting, setServersListSorting] = useState<any>(INITIAL_SERVERS_LIST_SORTING);
 
-  const tsAccessToken = localStorage.getItem(ACCESS_TOKEN);
-
-  // TODO: redo below useeffect to remove if tsacesstoken
   useEffect(() => {
-    if (tsAccessToken) {
-      dispatch(getServersListDataAsync());
-    } else {
-      navigate(AllRoutes.MAIN);
-    }
+    dispatch(getServersListDataAsync());
   }, []);
 
   const sortByColumnHeader = (columnHeader): void => {

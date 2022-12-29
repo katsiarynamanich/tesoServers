@@ -2,6 +2,7 @@ import { lazy, ReactElement } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import AllRoutes from 'app/shared/config/routes';
+import AuthRoute from './private-route';
 
 const Main = lazy(async () => await import('app/pages/main'));
 const Login = lazy(async () => await import('app/pages/login'));
@@ -13,7 +14,14 @@ function Pages(): ReactElement {
     <Routes>
       <Route path={AllRoutes.MAIN} element={<Main />} />
       <Route path={AllRoutes.LOGIN} element={<Login />} />
-      <Route path={AllRoutes.SERVERS} element={<Servers />} />
+      <Route
+        path={AllRoutes.SERVERS}
+        element={
+          <AuthRoute>
+            <Servers />
+          </AuthRoute>
+        }
+      />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

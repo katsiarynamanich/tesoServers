@@ -1,3 +1,5 @@
+$theadHeight: 63px;
+
 .servers__wrapper {
   height: 100%;
   width: 100%;
@@ -23,8 +25,12 @@
   .servers__tableScrollWrapper {
     width: rem(558px);
     height: 100%;
-    overflow: auto;
+    overflow: overlay;
     border-radius: 10px;
+
+    &::-webkit-scrollbar-track {
+      margin-top: $theadHeight;
+    }
   }
 
   .servers__table {
@@ -36,13 +42,18 @@
 .servers__thead {
   position: sticky;
   top: 0;
-  background: #6425e1;
+  background-color: #6425e1;
 
   .servers__th {
     padding: rem(20px) 0;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:hover {
+      background-color: #4912b6;
+      cursor: pointer;
+    }
   }
 
   .servers__theadNaming {
@@ -55,15 +66,15 @@
   .servers__theadIcon {
     display: flex;
     align-items: center;
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 }
 
 .servers__tbody {
   background-color: white;
+
+  > tr:hover {
+    background-color: #e8e8e9;
+  }
 
   .servers__td {
     width: 50%;

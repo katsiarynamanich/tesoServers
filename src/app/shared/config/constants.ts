@@ -1,4 +1,7 @@
+import { axiosClient } from "../api/axiosClient";
+
 export const ACCESS_TOKEN = 'TS_token';
+export const AXIOS_AUTHORIZATION_HEADER = 'Authorization';
 export interface ServerList {
   name: string;
   distance: number;
@@ -38,5 +41,6 @@ export const sortByStringAsc = (a: ServerList, b: ServerList): number =>
 
 export const handleLogout = (navigate): any => {
   localStorage.removeItem(ACCESS_TOKEN);
+  axiosClient.defaults.headers[AXIOS_AUTHORIZATION_HEADER] = '';
   navigate();
 };
