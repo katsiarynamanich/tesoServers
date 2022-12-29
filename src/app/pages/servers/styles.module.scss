@@ -14,3 +14,62 @@
   font-size: 24px;
 }
 
+.servers__tableWrapper {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - $header_height);
+  padding: rem(56px) rem(15px) rem(30px);
+
+  .servers__tableScrollWrapper {
+    width: rem(558px);
+    height: 100%;
+    overflow: auto;
+    border-radius: 10px;
+  }
+
+  .servers__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+}
+
+.servers__thead {
+  position: sticky;
+  top: 0;
+  background: #6425e1;
+
+  .servers__th {
+    padding: rem(20px) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .servers__theadNaming {
+    font-weight: 500;
+    padding-right: rem(10px);
+    line-height: rem(21px);
+    text-transform: capitalize;
+  }
+
+  .servers__theadIcon {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.servers__tbody {
+  background-color: white;
+
+  .servers__td {
+    width: 50%;
+    color: black;
+    font-weight: 500;
+    padding: rem(12px) 0;
+    line-height: rem(21px);
+  }
+}

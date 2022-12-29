@@ -1,6 +1,7 @@
-import { ReactNode, ReactElement } from 'react';
+import { ReactNode, ReactElement, useState } from 'react';
 
 import Header from './_ui/Header';
+import MobileNavBarModal from 'app/pages/mobile-nav-bar';
 
 import styles from './styles.module.scss';
 
@@ -9,10 +10,15 @@ interface IProps {
 }
 
 function Layout({ children }: IProps): ReactElement {
+  const [isMobileModalOpened, setIsMobileModalOpened] = useState(false);
   return (
     <div className={styles.layout__wrapper}>
-      <Header />
+      <Header
+        isMobileModalOpened={isMobileModalOpened}
+        setIsMobileModalOpened={setIsMobileModalOpened}
+      />
       <div className={styles.layout__inner}>{children}</div>
+      {isMobileModalOpened && <MobileNavBarModal setIsMobileModalOpened={setIsMobileModalOpened} />}
     </div>
   );
 }

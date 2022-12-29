@@ -22,3 +22,13 @@
     }
   }
 }
+
+.header__hamburgerIcon {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+
+  &:active {
+    opacity: 0.6;
+  }
+}

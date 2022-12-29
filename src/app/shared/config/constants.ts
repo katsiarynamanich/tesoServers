@@ -8,6 +8,7 @@ export interface ServerList {
 export enum AllColumnHeaders {
   NAME = 'name',
   DISTANCE = 'distance',
+  SERVERS = 'servers',
 }
 
 export enum SortingValues {
@@ -34,3 +35,8 @@ export const sortByNumberAsc = (a: ServerList, b: ServerList): number => {
 
 export const sortByStringAsc = (a: ServerList, b: ServerList): number =>
   a.name.localeCompare(b.name);
+
+export const handleLogout = (navigate): any => {
+  localStorage.removeItem(ACCESS_TOKEN);
+  navigate();
+};

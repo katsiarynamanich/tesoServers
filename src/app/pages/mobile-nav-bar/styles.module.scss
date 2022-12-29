@@ -1,0 +1,23 @@
+.mobileNavBar__wrapper {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 56px;
+  background-color: black;
+  z-index: 10;
+}
+
+.mobileNavBar__navPanel {
+  margin: rem(48px) rem(39px);
+
+  .mobileNavBar__navItem {
+    width: fit-content;
+    font-weight: 500;
+    line-height: rem(24px);
+    margin-bottom: rem(48px);
+
+    &:active {
+      color: grey;
+    }
+  }
+}

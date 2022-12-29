@@ -22,6 +22,9 @@ import {
   sortByStringAsc,
   SortingValues,
 } from 'app/shared/config/constants';
+import SortIcon from 'app/shared/icons/SortIcon';
+import SortAscIcon from 'app/shared/icons/SortAscIcon';
+import SortDescIcon from 'app/shared/icons/SortDescIcon';
 
 import styles from './styles.module.scss';
 
@@ -80,27 +83,46 @@ export default function Servers(): ReactElement {
       )}
       {!isServersListDataLoading && serversListData?.length > 0 && (
         <div className={styles.servers__tableWrapper}>
-          <table>
-            <thead>
-              <tr>
-                {COLUMN_HEADERS.map((columnHeader) => (
-                  <th onClick={() => sortByColumnHeader(columnHeader)} key={columnHeader}>
-                    <span>{columnHeader}</span>
-                    {serversListSorting[columnHeader] === SortingValues.ASCENDING && 'asc'}
-                    {serversListSorting[columnHeader] === SortingValues.DESCENDING && 'desc'}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {serversListData.map((serverList) => (
-                <tr key={serverList.id}>
-                  <td>{serverList[AllColumnHeaders.NAME]}</td>
-                  <td>{serverList[AllColumnHeaders.DISTANCE]}</td>
+          <div className={styles.servers__tableScrollWrapper}>
+            <table className={styles.servers__table}>
+              <thead className={styles.servers__thead}>
+                <tr>
+                  {COLUMN_HEADERS.map((columnHeader) => (
+                    <th onClick={() => sortByColumnHeader(columnHeader)} key={columnHeader}>
+                      <div className={styles.servers__th}>
+                        <span className={styles.servers__theadNaming}>
+                          {columnHeader === AllColumnHeaders.NAME
+                            ? AllColumnHeaders.SERVERS
+                            : columnHeader}
+                        </span>
+                        <div className={styles.servers__theadIcon}>
+                          {serversListSorting[columnHeader] === SortingValues.EMPTY && <SortIcon />}
+                          {serversListSorting[columnHeader] === SortingValues.ASCENDING && (
+                            <SortAscIcon />
+                          )}
+                          {serversListSorting[columnHeader] === SortingValues.DESCENDING && (
+                            <SortDescIcon />
+                          )}
+                        </div>
+                      </div>
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className={styles.servers__tbody}>
+                {serversListData.map((serverList) => (
+                  <tr key={serverList.id}>
+                    <td align="center" className={styles.servers__td}>
+                      {serverList[AllColumnHeaders.NAME]}
+                    </td>
+                    <td align="center" className={styles.servers__td}>
+                      {serverList[AllColumnHeaders.DISTANCE]}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
