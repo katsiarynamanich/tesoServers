@@ -68,12 +68,19 @@ export default function Servers(): ReactElement {
         </div>
       )}
       {!isServersListDataLoading && isServersListDataError && (
-        <div className={styles.servers__error}>Something is wrong. Please, try again...</div>
+        <div className={styles.servers__error} data-testid="servers-error">
+          Something is wrong. Please, try again...
+        </div>
+      )}
+      {!isServersListDataLoading && !isServersListDataError && serversListData?.length === 0 && (
+        <div className={styles.servers__error} data-testid="servers-no-data">
+          Servers have not got data.
+        </div>
       )}
       {!isServersListDataLoading && serversListData?.length > 0 && (
         <div className={styles.servers__tableWrapper}>
           <div className={styles.servers__tableScrollWrapper}>
-            <table className={styles.servers__table}>
+            <table role="table" className={styles.servers__table}>
               <thead className={styles.servers__thead}>
                 <tr>
                   {COLUMN_HEADERS.map((columnHeader) => (

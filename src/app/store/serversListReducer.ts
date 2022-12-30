@@ -5,13 +5,19 @@ import { axiosClient } from 'app/shared/api/axiosClient';
 import { RootState } from './';
 import { ServerList } from 'app/shared/config/constants';
 
+export const serversListInitialState: {
+  serversListData: ServerList[] | [],
+  isServersListDataLoading: boolean,
+  isServersListDataError: boolean
+} = {
+  serversListData: [],
+  isServersListDataLoading: false,
+  isServersListDataError: false,
+}
+
 export const serversListSlice = createSlice({
   name: 'serversList',
-  initialState: {
-    serversListData: [],
-    isServersListDataLoading: false,
-    isServersListDataError: false,
-  },
+  initialState: serversListInitialState,
   reducers: {
     setServersListData: (state, action) => {
       state.serversListData = action.payload;

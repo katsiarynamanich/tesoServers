@@ -14,7 +14,7 @@ function Header({ isMobileModalOpened, setIsMobileModalOpened }): ReactElement {
   const navigate = useNavigate();
 
   return (
-    <header className={styles.header__container}>
+    <header role="header" className={styles.header__container}>
       <LogoIcon />
       {isBrowser && (
         <div className={styles.header__navPanel}>
