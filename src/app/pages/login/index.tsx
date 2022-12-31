@@ -29,7 +29,7 @@ export default function Login(): ReactElement {
         (result) => {
           localStorage.setItem(ACCESS_TOKEN, result.data.token);
           axiosClient.defaults.headers[AXIOS_AUTHORIZATION_HEADER] = result.data.token;
-          navigate(AllRoutes.MAIN);
+          navigate(AllRoutes.SERVERS);
           setIsLoadingLogin(false);
         },
         (error) => {
@@ -44,7 +44,7 @@ export default function Login(): ReactElement {
   };
 
   useEffect(() => {
-    tsAccessToken && navigate(AllRoutes.MAIN);
+    tsAccessToken && navigate(AllRoutes.SERVERS);
   }, []);
 
   const formik = useFormik({

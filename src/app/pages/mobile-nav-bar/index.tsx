@@ -13,7 +13,7 @@ export default function MobileNavBarModal({ setIsMobileModalOpened }): ReactElem
 
   const handleLogoutFromNavBar = (): void => {
     setIsMobileModalOpened(false);
-    handleLogout(() => navigate(AllRoutes.MAIN));
+    handleLogout(() => navigate(AllRoutes.LOGIN));
   };
 
   const handleClickNavBar = (route): void => {

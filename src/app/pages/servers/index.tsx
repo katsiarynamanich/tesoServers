@@ -35,6 +35,9 @@ export default function Servers(): ReactElement {
 
   useEffect(() => {
     dispatch(getServersListDataAsync());
+    return () => {
+      dispatch(setServersListData([]));
+    };
   }, []);
 
   const sortByColumnHeader = (columnHeader): void => {

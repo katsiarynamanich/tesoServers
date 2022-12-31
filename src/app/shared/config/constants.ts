@@ -1,4 +1,4 @@
-import { axiosClient } from "../api/axiosClient";
+import { axiosClient } from '../api/axiosClient';
 
 export const ACCESS_TOKEN = 'TS_token';
 export const AXIOS_AUTHORIZATION_HEADER = 'Authorization';

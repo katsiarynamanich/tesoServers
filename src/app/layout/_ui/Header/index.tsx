@@ -33,7 +33,7 @@ function Header({ isMobileModalOpened, setIsMobileModalOpened }): ReactElement {
               </div>
               <div
                 className={styles.header__navItem}
-                onClick={() => handleLogout(() => navigate(AllRoutes.MAIN))}
+                onClick={() => handleLogout(() => navigate(AllRoutes.LOGIN))}
               >
                 Logout
               </div>

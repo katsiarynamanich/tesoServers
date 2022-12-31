@@ -7,13 +7,6 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.2",
     "@reduxjs/toolkit": "^1.9.1",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.10",
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.10",
     "axios": "^1.2.1",
     "classnames": "^2.3.2",
     "formik": "^2.2.9",
@@ -32,8 +25,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test --transformIgnorePatterns node_modules/(?!@codemirror)/",
-    "eject": "react-scripts eject"
+    "test": "craco test --transformIgnorePatterns node_modules/(?!@codemirror)/"
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +47,13 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.11",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
     "eslint": "^8.30.0",
